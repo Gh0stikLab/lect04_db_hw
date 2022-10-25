@@ -1,5 +1,5 @@
 import sqlite3
-import random
+from random import randint
 from faker import Faker
 
 
@@ -25,7 +25,7 @@ def input_data_person(conn, rec_count):
         sql = f'''
             insert into person (first_name, last_name, address, job, age)
             values
-                ("{p.first_name()}", "{p.last_name()}", "{p.address()}", "{p.job()}", {random.randint(20, 60)})
+                ("{p.first_name()}", "{p.last_name()}", "{p.address()}", "{p.job()}", {p.random_int(20, 60)})
         '''
         cur.execute(sql)
         conn.commit()
@@ -72,7 +72,7 @@ con = sqlite3.connect('hw_db.db')
 
 create_tbl_person(con)
 del_all_data(con)
-input_data_person(con, random.randint(11, 31))
+input_data_person(con, randint(11, 31))
 # upd_person(con, 6, 77)
 output_person(con)
 print('Ok')
