@@ -75,6 +75,6 @@ del_all_data(con)
 input_data_person(con, randint(11, 31))
 # upd_person(con, 6, 77)
 output_person(con)
-print('Ok')
 
 con.close()
+print('Ok')
